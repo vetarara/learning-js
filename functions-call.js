@@ -1,28 +1,17 @@
-function hello(param) {
-    console.log('Hello, world!');
-    console.log(param);
+function myFunc(callback) {
+    const a = [4, 5, 6];
+    let element = document.querySelector('.out-1');
+    callback(element, a);
+    // out(element, a);
 }
 
-// hello('JavaScript');
+function out(elem, arr) {
+elem.innerHTML = arr.join(' ');
+}
 
-// hello.apply(null, ['JavaScript']);
-// не просто вызвать функцию, но и задать ей контекст
+function out2(elem, arr) {
+elem.innerHTML = arr.join('-');
+}
 
-// hello.call(null, 'JavaScript');
-/* также, как и apply - когда нужно задать контект
-но apply используется чаще, т.к. передавать аргументы в виде массива - удобно */
-
-// hello.call(null, ...['JavaScript']);
-// call c массивом
-
-/* IIFE - Immediately Invoked Function Expression - Немедленно вызываемое функциональное выражение
-функция выполняется и сразу же вызываается*/
-/* (function hello(param) {
-    console.log('Hello, world!');
-    console.log(param);
-})('JavaScript'); */
-
-// eval(`hello('JavaScript')`);
-// опасно - возможность выполнения вредоносного кода
-
-// setTimeout(() => hello('JavaScript'), 0);
+myFunc(out2);
+myFunc(out);
